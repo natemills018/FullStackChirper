@@ -13,7 +13,7 @@ export function getAll() {
 }
 
 export function getOne(id: number) {
-    return ModifyQuery<IClientRow>('SELECT * FROM clients WHERE id =?;',[id])
+    return SelectQuery<IClientRow>('SELECT * FROM clients WHERE id =?;',[id])
 }
 
 export function insert(handle: string, email: string) {

@@ -6,6 +6,8 @@ export interface IClientRow {
 }
 
 export interface ITweetRow {
+    handle? :string;
+    email? :string
     id: number;
     clients_id: string;
     body: string;

@@ -10,10 +10,11 @@ const Client = (props: ClientProps) => {
     const [data, setData] = useState<IClientRow | null>(null);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/api/clients${id}`)
+        fetch(`http://localhost:3000/api/clients/${id}`)
             .then(res => res.json())
             .then(data => setData(data))
-    }, [])
+            .catch(e => alert(e.message))
+    }, [id])
 
     return (
         <main className='container mt-5'>
@@ -21,8 +22,9 @@ const Client = (props: ClientProps) => {
                 <div className='col-12 col-md-6'>
                     <div className='card shadow'>
                         <div className='card-body'>
-                            <h2 className='card-title'>{data?.email} </h2>
-                            <p className='card-text'>User #{id}</p>
+                            <div className='card-title'> User {id}</div>
+                            <p className='card-text'>{data?.handle}</p>
+                            
                             <Link to='/clients' className='btn btn-outline btn-primary'>Go Back to Users Handle</Link>
                         </div>
                     </div>

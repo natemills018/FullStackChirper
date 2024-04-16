@@ -8,7 +8,11 @@ const router = Router();
 router.get('/:id', async (req, res) => {
     try {
         const id = parseInt(req.params.id, 10);
-        const client = await db.clients.getOne(id);
+        const clients = await db.clients.getOne(id);
+        const client = clients[0];
+        if(! client) {
+            return res.status(404).json({ message: 'No User was found with this id'})
+        }
         res.json(client);
     } catch (error) {
         console.log(error);
