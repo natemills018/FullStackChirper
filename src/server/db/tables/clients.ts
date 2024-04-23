@@ -9,7 +9,7 @@ export interface IClientRow extends RowDataPacket {
 }
 
 export function getAll() {
-    return SelectQuery<IClientRow>('SELECT * FROM clients;');
+    return SelectQuery<IClientRow>('SELECT clients.id, clients.handle, clients.email, tweets.body, tweets.location, FROM clients JOIN tweets ON clients_id = clients.clients.id ;');
 }
 
 export function getOne(id: number) {

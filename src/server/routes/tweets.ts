@@ -8,7 +8,11 @@ const router = Router();
 router.get('/:id', async (req, res) => {
     try {
         const id = parseInt(req.params.id, 10);
-        const tweet = await db.tweets.getOne(id);
+        const tweets = await db.tweets.getOne(id);
+        const tweet = tweets[0];
+        if(!tweet) {
+            return res.status(404).json({ message: 'No User was found with this id'})
+        }
         res.json(tweet);
     } catch (error) {
         console.log(error);

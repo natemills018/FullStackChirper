@@ -23,9 +23,9 @@ const Client = (props: ClientProps) => {
                     <div className='card shadow'>
                         <div className='card-body'>
                             <div className='card-title'> User {id}</div>
-                            <p className='card-text'>{data?.handle}</p>
+                            <p className='card-text'>{data?.email}</p>
                             
-                            <Link to='/clients' className='btn btn-outline btn-primary'>Go Back to Users Handle</Link>
+                            <Link to='/clients' className='btn btn-outline btn-primary'>Go Back to Users</Link>
                         </div>
                     </div>
                 </div>

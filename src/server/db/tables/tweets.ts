@@ -10,7 +10,7 @@ export interface ITweetRow extends RowDataPacket {
 }
 
 export function getAll() {
-    return SelectQuery<ITweetRow>('SELECT clients.id, clients.handle, clients.email, tweets.body, tweets.location FROM tweets JOIN clients ON clients.id = tweets.clients_id;');
+    return SelectQuery<ITweetRow>('SELECT * FROM tweets');
 }
 
 export function updateOne(id: number, location: string) {
@@ -18,7 +18,7 @@ export function updateOne(id: number, location: string) {
 }
 
 export function getOne(id: number) {
-    return ModifyQuery<ITweetRow>('SELECT * FROM tweets WHERE id =?;', [id])
+    return SelectQuery<ITweetRow>('SELECT * FROM tweets WHERE id =?;', [id])
 }
 
 export function insert(body: string, location: string) {

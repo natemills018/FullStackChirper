@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import { fetchData } from '../services/fetchData';
 import type { IClientRow } from '../types';
 interface ClientsProps {
 
@@ -25,7 +24,7 @@ const Clients = (props: ClientsProps) => {
                             <li className='list-group-item d-flex justify-content-between align-items center'
                             key={`client-${client.id}`}>
                                 <span>{client.handle}</span>
-                                <Link to={`/clients/${client.id}`} className='btn btn-sm btn-secondary'>Email</Link>
+                                <Link to={`/clients/${client.id}`} className='btn btn-secondary'>Alias</Link>
                             </li>
                         ))}
                     </ul>
